@@ -28,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
         btn3 =(ImageButton)findViewById(R.id.btn3);
     }
 
+    // Uses Reflection to search source code for on click method
     public void onClick(View v){
         Toast.makeText(v.getContext(), "Button 2 was tapped", Toast.LENGTH_SHORT).show();
     }
 
     private void initialListener(){
+
+        // Android Best Practice for Listeners
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

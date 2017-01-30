@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.virajashah.android.virajdemo.R;
 
@@ -41,14 +42,46 @@ public class ListViewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-//        TextView view = new TextView(mContext);
-//        view.setText(String.valueOf(position));
-//        return view;
-        View rowView = mInflater.inflate(R.layout.list_item, parent, false);
-        TextView textView = (TextView)rowView.findViewById(R.id.list_view_tv);
-        textView.setText(String.valueOf(position));
-        return  rowView;
-        //View rowView = mInflater.inflate(R.la)
+
+        ViewHolder holder;
+        if(convertView == null){
+            convertView = mInflater.inflate(R.layout.list_item, parent, false);
+            holder = new ViewHolder();
+            holder.textView1 = (TextView)convertView.findViewById(R.id.list_view_tv1);
+            holder.textView2 = (TextView)convertView.findViewById(R.id.list_view_tv2);
+            holder.textView3 = (TextView)convertView.findViewById(R.id.list_view_tv3);
+
+            convertView.setTag(holder);
+
+        }else{
+            holder = (ViewHolder) convertView.getTag();
+        }
+
+        holder.textView1.setText(String.valueOf(position));
+        holder.textView3.setText(String.valueOf(position));
+
+        if (position%2==0){
+            holder.textView1.setVisibility(View.VISIBLE);
+            holder.textView3.setVisibility(View.INVISIBLE);
+
+        }else{
+            holder.textView1.setVisibility(View.INVISIBLE);
+            holder.textView3.setVisibility(View.VISIBLE);
+
+        }
+
+//        View rowView = mInflater.inflate(R.layout.list_item, parent, false);
+//        TextView textView = (TextView)rowView.findViewById(R.id.list_view_tv);
+//        textView.setText(String.valueOf(position));
+//        return  rowView;
+        return convertView;
 
     }
+}
+
+class ViewHolder{
+    TextView textView1;
+    TextView textView2;
+    TextView textView3;
+
 }
