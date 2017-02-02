@@ -80,6 +80,9 @@ public class ListViewAdapter extends BaseAdapter {
 }
 
 class ViewHolder{
+
+    // Save memory for JVM
+
     TextView textView1;
     TextView textView2;
     TextView textView3;
