@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import com.virajashah.android.virajdemo.R;
 
+import java.util.ArrayList;
+
 /**
  * Created by youngvz on 1/25/17.
  */
@@ -19,15 +21,17 @@ public class ListViewAdapter extends BaseAdapter {
 
     private Context mContext;
     private final LayoutInflater mInflater;
+    private ArrayList<String> listResult;
 
-    public ListViewAdapter(Context context) {
+    public ListViewAdapter(Context context, ArrayList<String> listResult) {
         mContext = context;
+        this.listResult = listResult;
         mInflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Override
     public int getCount() {
-        return 100;
+        return listResult.size();
     }
 
     @Override
@@ -59,6 +63,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         holder.textView1.setText(String.valueOf(position));
         holder.textView3.setText(String.valueOf(position));
+        holder.textView2.setText(listResult.get(position));
 
         if (position%2==0){
             holder.textView1.setVisibility(View.VISIBLE);
