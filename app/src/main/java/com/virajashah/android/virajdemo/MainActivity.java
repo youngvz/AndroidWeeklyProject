@@ -3,11 +3,14 @@ package com.virajashah.android.virajdemo;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+import com.virajashah.android.virajdemo.util.UtilLog;
+
+public class MainActivity extends BaseActivity {
 
     private ImageButton btn1;
     private ImageButton btn3;
@@ -30,7 +33,8 @@ public class MainActivity extends AppCompatActivity {
 
     // Uses Reflection to search source code for on click method
     public void onClick(View v){
-        Toast.makeText(v.getContext(), "Button 2 was tapped", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(v.getContext(), "Button 2 was tapped", Toast.LENGTH_SHORT).show();
+        UtilLog.logD("MainActivity", "Button 2 was tapped");
     }
 
     private void initialListener(){
@@ -39,16 +43,17 @@ public class MainActivity extends AppCompatActivity {
         btn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ViewPagerActivity.class);
-                startActivity(intent);
-                //Toast.makeText(v.getContext(), "Button 1 was tapped", Toast.LENGTH_SHORT).show();
+
+                toActivity(ViewPagerActivity.class);
+                toastShort("Button 1 was tapped");
             }
         });
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), ListViewActivity.class);
-                startActivity(intent);
+
+                toastLong("Button 2 was clicked!");
+                toActivity(ListViewActivity.class);
             }
         });
     }

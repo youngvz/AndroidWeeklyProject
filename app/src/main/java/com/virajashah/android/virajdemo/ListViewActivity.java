@@ -2,6 +2,7 @@ package com.virajashah.android.virajdemo;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.virajashah.android.virajdemo.adapter.ListViewAdapter;
+import com.virajashah.android.virajdemo.util.UtilLog;
 
 import java.util.ArrayList;
 
@@ -37,6 +39,14 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
         listResult.add("E");
         listResult.add("F");
         listResult.add("G");
+        listResult.add("H");
+        listResult.add("I");
+        listResult.add("J");
+        listResult.add("K");
+        listResult.add("L");
+        listResult.add("M");
+        listResult.add("N");
+
     }
 
     private void initialView() {
@@ -60,6 +70,7 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(this, "listView was clicked at position:"+position, Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "listView was clicked at position:"+position, Toast.LENGTH_SHORT).show();
+        UtilLog.logD("ListViewActivity", String.valueOf(position));
     }
 }
