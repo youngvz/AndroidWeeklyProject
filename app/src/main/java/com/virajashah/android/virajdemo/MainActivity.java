@@ -48,6 +48,7 @@ public class MainActivity extends BaseActivity {
                 toastShort("Button 1 was tapped");
             }
         });
+
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
