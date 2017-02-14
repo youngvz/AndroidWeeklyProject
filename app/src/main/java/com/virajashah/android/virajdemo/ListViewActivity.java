@@ -51,8 +51,10 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
     private void initialView() {
         listView = (ListView)findViewById(R.id.list_view);
-        View view = getLayoutInflater().inflate(R.layout.listviewheader, null);
 
+
+
+        View view = getLayoutInflater().inflate(R.layout.listviewheader, null);
         LinearLayout listViewHeader = (LinearLayout)view.findViewById(R.id.list_view_header);
         ListViewAdapter listViewAdapter = new ListViewAdapter(this, listResult);
         listView.addHeaderView(listViewHeader);

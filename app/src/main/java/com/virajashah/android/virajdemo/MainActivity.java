@@ -10,10 +10,19 @@ import android.widget.Toast;
 
 import com.virajashah.android.virajdemo.util.UtilLog;
 
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 public class MainActivity extends BaseActivity {
 
     private ImageButton btn1;
     private ImageButton btn3;
+
+    @OnClick(R.id.btn2)
+    public void button2Click(){
+        toActivity(DialogActivity.class);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +30,7 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
         initialView();
         initialListener();
+        ButterKnife.bind(this);
     }
 
 
@@ -32,10 +42,6 @@ public class MainActivity extends BaseActivity {
     }
 
     // Uses Reflection to search source code for on click method
-    public void onClick(View v){
-        //Toast.makeText(v.getContext(), "Button 2 was tapped", Toast.LENGTH_SHORT).show();
-        UtilLog.logD("MainActivity", "Button 2 was tapped");
-    }
 
     private void initialListener(){
 
