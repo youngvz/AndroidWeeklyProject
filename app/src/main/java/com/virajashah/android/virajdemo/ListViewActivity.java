@@ -1,5 +1,6 @@
 package com.virajashah.android.virajdemo;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
@@ -104,5 +105,15 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Toast.makeText(this, "listView was clicked at position:"+position, Toast.LENGTH_SHORT).show();
         UtilLog.logD("ListViewActivity", String.valueOf(position));
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        Intent intent = new Intent();
+        intent.putExtra("message", "ListView");
+        setResult(RESULT_OK, intent);
+        super.onBackPressed();
+
     }
 }

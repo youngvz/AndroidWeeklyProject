@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import com.virajashah.android.virajdemo.bean.Book;
 import com.virajashah.android.virajdemo.util.UtilLog;
 
 import butterknife.ButterKnife;
@@ -20,7 +21,9 @@ public class MainActivity extends BaseActivity {
 
     @OnClick(R.id.btn2)
     public void button2Click(){
-        toActivity(DialogActivity.class);
+        Intent intent = new Intent(this, DialogActivity.class);
+        startActivityForResult(intent, 2);
+        //toActivity(DialogActivity.class);
     }
 
 
@@ -50,8 +53,19 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                toActivity(ViewPagerActivity.class);
                 toastShort("Button 1 was tapped");
+                Intent intent = new Intent(v.getContext(), ViewPagerActivity.class);
+                intent.putExtra("key", "value");
+                Bundle bundle = new Bundle();
+                bundle.putInt("Integer", 12345);
+                Book book = new Book();
+                book.setName("Android");
+                book.setAuthor("Viraj");
+                bundle.putSerializable("book",book);
+
+                intent.putExtras(bundle);
+                startActivityForResult(intent,1);
+                //toActivity(ViewPagerActivity.class);
             }
         });
 
@@ -59,10 +73,35 @@ public class MainActivity extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                toastLong("Button 2 was clicked!");
-                toActivity(ListViewActivity.class);
+                toastShort("Button 2 was clicked!");
+                Intent intent = new Intent(v.getContext(),ListViewActivity.class);
+                startActivityForResult(intent,3);
             }
         });
     }
 
+    @Override
+    protected void onStart(){
+        super.onStart();
+        toastShort("onStart");
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        switch (requestCode){
+            case 1:
+                String message = data.getStringExtra("message");
+                toastShort(message);
+                break;
+            case 2:
+                toastShort("Dialog");
+                break;
+            case 3:
+                toastShort("ListView");
+                break;
+            default:
+        }
+
+    }
 }

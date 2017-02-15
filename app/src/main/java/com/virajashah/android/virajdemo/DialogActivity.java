@@ -2,12 +2,15 @@ package com.virajashah.android.virajdemo;
 
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.IdRes;
 import android.support.v7.app.AlertDialog;
 import android.widget.EditText;
 import android.widget.RadioGroup;
 import android.widget.Toast;
+
+import com.virajashah.android.virajdemo.dialog.CustomDialog;
 
 import java.util.ArrayList;
 
@@ -48,6 +51,9 @@ public class DialogActivity extends BaseActivity {
                 break;
             case R.id.rb7:
                 inputDialog();
+                break;
+            case R.id.rb8:
+                customDialog();
                 break;
             default:
         }
@@ -191,6 +197,22 @@ public class DialogActivity extends BaseActivity {
         //waitingDialog.dismiss();
     }
 
+
+    private void customDialog(){
+        final CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener(){
+
+            @Override
+            public void onClickListener() {
+                Intent intent = new Intent();
+                intent.putExtra("message", "Dialog");
+                setResult(RESULT_OK, intent);
+                finish();
+                //toastShort("OK Button was clicked!");
+            }
+        });
+        dialog.show();
+    }
+
     private void inputDialog(){
         final EditText editText = new EditText(this);
         AlertDialog.Builder inputDialog = new AlertDialog.Builder(this);
@@ -203,6 +225,9 @@ public class DialogActivity extends BaseActivity {
         });
 
         inputDialog.setNegativeButton("Cancel", null);
+
+
+        inputDialog.show();
     }
 
 
