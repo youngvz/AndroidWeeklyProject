@@ -48,8 +48,8 @@ public class ViewPagerActivity extends AppCompatActivity {
         viewPagerAdapter.setContent(fragmentList);
         viewPager.setAdapter(viewPagerAdapter);
 
-        tabLayout = (TabLayout)findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+//        tabLayout = (TabLayout)findViewById(R.id.tab_layout);
+//        tabLayout.setupWithViewPager(viewPager);
 
     }
 

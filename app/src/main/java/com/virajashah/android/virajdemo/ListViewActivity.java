@@ -15,6 +15,14 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.virajashah.android.virajdemo.Fragments.CenterCropFragment;
+import com.virajashah.android.virajdemo.Fragments.CenterFragment;
+import com.virajashah.android.virajdemo.Fragments.CenterInsideFragment;
+import com.virajashah.android.virajdemo.Fragments.FitCenterFragment;
+import com.virajashah.android.virajdemo.Fragments.FitEndFragment;
+import com.virajashah.android.virajdemo.Fragments.FitStartFragment;
+import com.virajashah.android.virajdemo.Fragments.FitXYFragment;
+import com.virajashah.android.virajdemo.Fragments.MatrixFragment;
 import com.virajashah.android.virajdemo.adapter.ListViewAdapter;
 import com.virajashah.android.virajdemo.adapter.ViewPagerAdapter;
 import com.virajashah.android.virajdemo.util.UtilLog;
@@ -70,15 +78,24 @@ public class ListViewActivity extends AppCompatActivity implements AdapterView.O
 
 
 
-        fragmentList.add(new LoginFragment());
-        fragmentList.add(new ContentFragment());
-        fragmentList.add(new HistorysFragment());
+//        fragmentList.add(new LoginFragment());
+//        fragmentList.add(new ContentFragment());
+//        fragmentList.add(new HistorysFragment());
+        fragmentList.add(new CenterCropFragment());
+        fragmentList.add(new CenterFragment());
+        fragmentList.add(new CenterInsideFragment());
+        fragmentList.add(new FitCenterFragment());
+        fragmentList.add(new FitEndFragment());
+        fragmentList.add(new FitStartFragment());
+        fragmentList.add(new FitXYFragment());
+        fragmentList.add(new MatrixFragment());
+
 
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(this.getSupportFragmentManager());
         viewPagerAdapter.setContent(fragmentList);
 
-        TabLayout tabLayout = (TabLayout) pager.findViewById(R.id.tab_layout);
-        tabLayout.setupWithViewPager(viewPager);
+//        TabLayout tabLayout = (TabLayout) pager.findViewById(R.id.tab_layout);
+//        tabLayout.setupWithViewPager(viewPager);
 
         viewPager.setAdapter(viewPagerAdapter);
 
