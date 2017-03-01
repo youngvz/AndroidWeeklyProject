@@ -26,6 +26,11 @@ public class MainActivity extends BaseActivity {
         //toActivity(DialogActivity.class);
     }
 
+    @OnClick(R.id.launchActivities)
+    public void launchActivities(){
+        Intent intent = new Intent(this, ActivityA.class);
+        startActivity(intent);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +77,6 @@ public class MainActivity extends BaseActivity {
         btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 toastShort("Button 2 was clicked!");
                 Intent intent = new Intent(v.getContext(),ListViewActivity.class);
                 startActivityForResult(intent,3);

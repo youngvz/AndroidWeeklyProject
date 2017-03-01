@@ -18,8 +18,20 @@
         </activity>
         <activity android:name=".ListViewActivity" />
         <activity android:name=".ViewPagerActivity" />
-        <activity android:name=".BaseActivity"></activity>
-        <activity android:name=".DialogActivity"></activity>
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".DialogActivity" />
+        <activity
+            android:name=".ActivityA"
+            android:launchMode="standard"/>
+        <activity
+            android:name=".ActivityB"
+            android:launchMode="singleTop"/>
+        <activity
+            android:name=".ActivityC"
+            android:launchMode="singleTask"/>
+        <activity
+            android:name=".ActivityD"
+            android:launchMode="singleInstance"></activity>
     </application>
 
 </manifest>

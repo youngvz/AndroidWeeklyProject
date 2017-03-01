@@ -36,6 +36,7 @@
             android:layout_alignParentLeft="true"/>
 
         <ImageButton
+            android:id="@+id/launchActivities"
             android:layout_width="48dp"
             android:layout_height="48dp"
             android:background="@drawable/btn_style"
