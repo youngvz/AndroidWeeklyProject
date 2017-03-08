@@ -74,8 +74,6 @@ public class DialogActivity extends BaseActivity {
 
 
         builder.show();
-
-
     }
 
 
@@ -199,6 +197,7 @@ public class DialogActivity extends BaseActivity {
 
 
     private void customDialog(){
+
         final CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener(){
 
             @Override

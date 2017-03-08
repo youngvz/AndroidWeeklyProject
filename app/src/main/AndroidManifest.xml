@@ -32,6 +32,7 @@
         <activity
             android:name=".ActivityD"
             android:launchMode="singleInstance"></activity>
+        <activity android:name=".AnimatorActivity" />
     </application>
 
 </manifest>

@@ -79,12 +79,48 @@
             android:background="@color/white"/>
 
     </LinearLayout>
-    <ListView
+
+    <RelativeLayout
         android:layout_below="@id/title_bar"
         android:layout_above="@id/tool_bar"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white"></ListView>
+        android:background="@android:color/white"
+        android:id="@+id/mainView">
+
+        <Button
+            android:id="@+id/Button1"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="Animator"
+            android:layout_weight="1"
+            android:layout_margin="6dp"
+            android:gravity="center"
+            />
+
+        <Button
+            android:id="@+id/Button2"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:text="Animation"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_marginLeft="6dp"
+            android:layout_marginRight="6dp"
+            android:layout_alignTop="@+id/Button1"
+            android:layout_toEndOf="@+id/Button1"
+            android:layout_marginStart="15dp" />
+
+        <Button
+            android:text="Quiz4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/Button1"
+            android:layout_alignStart="@+id/Button1"
+            android:layout_marginTop="15dp"
+            android:id="@+id/quiz3" />
+
+    </RelativeLayout>
 
 
 </RelativeLayout>
