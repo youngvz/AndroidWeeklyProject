@@ -35,25 +35,21 @@ public class MainActivity extends BaseActivity implements View.OnTouchListener {
        final Quiz3Dialog quiz3Dialog = new Quiz3Dialog(this, new Quiz3Dialog.IQuiz3DialogEventListener() {
            @Override
            public void onCancelClickListener() {
-               toastShort("User clicked Cancel");
            }
 
            @Override
            public void onOkayDialogListener() {
-               toastShort("User clicked Dialog View");
                launchDialogActivity();
 
            }
 
            @Override
            public void onOkayListViewListener() {
-               toastShort("User clicked ListView");
                launchListViewActivity();
            }
 
            @Override
            public void onOkayHeaderViewListener() {
-               toastShort("User clicked HeaderView");
                launchHeaderActivity();
            }
        });
